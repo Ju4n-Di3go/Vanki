@@ -813,70 +813,6 @@ html {
     margin-top: 3%;
 }
 
-/* Testimonials Section */
-.testimonials-section {
-    background: var(--gradient-card);
-    padding: var(--section-padding);
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
-}
-
-.testimonial-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: var(--shadow-card);
-    border-left: 4px solid;
-    transition: var(--transition-smooth);
-}
-
-.testimonial-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hero);
-}
-
-.testimonial-card blockquote {
-    font-style: italic;
-    font-size: var(--font-size-base);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    color: hsl(var(--color-muted-foreground));
-}
-
-.testimonial-author {
-    border-top: 1px solid hsl(var(--color-muted));
-    padding-top: 1rem;
-}
-
-.author-name {
-    font-weight: 700;
-    color: hsl(var(--color-foreground));
-    margin-bottom: 0.25rem;
-}
-
-.author-location {
-    font-size: var(--font-size-sm);
-    color: hsl(var(--color-muted-foreground));
-    margin-bottom: 0.75rem;
-}
-
-.author-highlight {
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    color: hsl(var(--color-primary));
-}
-
-.testimonial-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-}
-
 /* Casa Bonita Section */
 .casa-bonita-section {
     padding: 3rem 0 4rem;
@@ -1084,15 +1020,17 @@ html {
     .footer-content {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
+        padding-top: 1.5rem !important;
+        padding-bottom: 0 !important;
     }
     
     /* Contenedor para las dos columnas (enlaces y contacto) */
     .footer-columns-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-        margin-top: 1rem;
+        gap: 1rem;
+        margin-top: 0.5rem !important;
         width: 100%;
     }
     
@@ -1117,15 +1055,10 @@ html {
         margin: 0 auto;
     }
     
-    .footer-title {
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
-    }
-    
     .footer-description {
         font-size: 0.9rem;
         line-height: 1.5;
-        margin-bottom: 1rem;
+        margin-bottom: 0rem!important;
     }
     
     .footer-subtitle {
@@ -1193,64 +1126,128 @@ html {
 
 /* CTA Section */
 .cta-section {
-    padding: 3rem 0 2rem;
+    padding: 2rem 0 1.5rem;
     background: linear-gradient(to bottom, hsl(var(--color-background)) 0%, hsl(var(--color-background)) 100%);
     position: relative;
     overflow: hidden;
 }
 
+@media (max-width: 768px) {
+    .cta-section {
+        padding: 1.5rem 0 1rem;
+    }
+}
+
 .cta-section .section-title,
 .cta-section .section-description {
-    color: #000;
+color: #000;
 }
 
 .cta-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0.05rem;
-    margin: 0.05rem 0;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 1.5rem;
+margin: 0;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 1rem;
 }
 
 .cta-card {
-    background: var(--gradient-card-strong);
-    border-radius: 0.75rem;
-    padding: 3.2rem 0.5rem;
-    text-align: center;
-    box-shadow: var(--shadow-card);
-    transition: var(--transition-smooth);
-    margin: 0 auto;
-    max-width: 450px;
+background: var(--gradient-card-strong);
+border-radius: 0.75rem;
+padding: 2rem 1.5rem;
+text-align: center;
+box-shadow: var(--shadow-card);
+transition: var(--transition-smooth);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
+min-height: 280px;
 }
 
 .cta-card h3 {
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: white;
+font-size: var(--font-size-2xl);
+font-weight: 700;
+margin: 1rem 0 0.75rem;
+color: white;
+line-height: 1.3;
 }
 
 .cta-card p {
-    font-size: var(--font-size-lg);
-    margin-bottom: 1.5rem;
-    color: rgba(255, 255, 255, 0.9);
+font-size: var(--font-size-base);
+margin: 0 0 1.5rem;
+color: rgba(255, 255, 255, 0.9);
+line-height: 1.5;
 }
 
 .cta-card small {
-    font-size: var(--font-size-xs);
-    color: rgba(255, 255, 255, 0.8);
-    display: block;
-    margin-top: 0.5rem;
+font-size: var(--font-size-xs);
+color: rgba(255, 255, 255, 0.8);
+display: block;
+margin-top: 0.5rem;
 }
 
 .cta-card i {
-    font-size: var(--font-size-3xl);
-    margin-bottom: 1rem;
-    color: white;
+font-size: 2.5rem;
+margin: 0 0 0.5rem;
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 64px;
+height: 64px;
+background: rgba(255, 255, 255, 0.1);
+border-radius: 50%;
+padding: 0.5rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+.cta-grid {
+grid-template-columns: 1fr;
+gap: 1rem;
+padding: 0 1rem;
+}
+    
+.cta-card {
+padding: 1.5rem 1rem;
+min-height: auto;
+border-radius: 0.75rem;
+margin: 0;
+width: 100%;
+}
+    
+.cta-card h3 {
+font-size: 1.25rem;
+margin: 0.75rem 0 0.5rem;
+}
+    
+.cta-card p {
+font-size: 0.9375rem;
+margin: 0 0 1.25rem;
+}
+    
+.cta-card i {
+font-size: 2rem;
+width: 56px;
+height: 56px;
+}
+    
+.cta-card .btn {
+padding: 0.5rem 1rem;
+font-size: 0.875rem;
+width: 100%;
+max-width: 180px;
+}
 }
 
 /* Contact Section */
 .contact-section {
-    padding: 1.5rem 0 0.5rem;
+padding: 1.5rem 0 0.5rem;
+background-color: hsl(var(--color-background));
+text-align: center;
     background-color: hsl(var(--color-background));
     text-align: center;
 }
@@ -1345,35 +1342,6 @@ html {
     display: inline-block;
 }
 
-.footer-title {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0;
-    padding: 0;
-    font-size: 1.25rem;
-    line-height: 1;
-}
-
-.footer-description {
-    margin-top: 8px;
-    margin-bottom: 0;
-    padding: 0;
-    line-height: 1.5;
-    font-size: 0.9rem;
-    max-width: 300px;
-}
-
-/* Ensure the footer column doesn't add extra spacing */
-.footer-column {
-    margin: 0;
-    padding: 0;
-}
-
-/* Reset any default margins on paragraphs in the footer */
-.footer-column p {
-    margin: 0;
-    padding: 0;
-}
 
 .contact-card:nth-child(1) .contact-icon {
     background: linear-gradient(135deg, #25D366, #128C7E);
@@ -1428,10 +1396,9 @@ footer {
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    flex-direction: row;
-    flex: 1;
-    min-width: 250px;
-    margin-bottom: 2rem;
+    flex-direction: column;
+    margin-bottom: 0.5rem !important;
+    width: 100%;
 }
 
 .footer-logo-container {
@@ -1443,25 +1410,6 @@ footer {
     margin: 0;
     padding: 0;
     display: block;
-}
-
-.footer-column:first-child .footer-title {
-    font-size: var(--font-size-3xl);
-    color: var(--color-primary-glow);
-    margin: 0;
-    padding: 0;
-    margin-top: 0rem;
-    margin-right: 0.5rem;
-    margin-left: 0.1rem;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.footer-column:not(:first-child) .footer-title {
-    color: var(--color-primary-glow);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
 }
 
 .footer-text {
@@ -1523,11 +1471,10 @@ footer {
 }
 
 .footer-description {
-    margin-top: 0rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0rem;
     max-width: 300px;
     opacity: 0.9;
-    line-height: 1.1;
+    line-height: 2;
 }
 
 .footer-bottom {
@@ -1703,14 +1650,21 @@ footer {
         text-align: center;
     }
     
-    .footer-logo {
-        margin: 0 auto 0.5rem;
-        display: block;
+    .footer-column:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     
-    .footer-title {
-        display: block;
-        margin: 0 auto 1rem;
+    .footer-logo {
+        height: 40px;
+        margin: 0 0.5rem 0 0;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    .footer-column:first-child {
+        margin-bottom: 2rem;
     }
     
     .footer-description {
@@ -1744,13 +1698,11 @@ footer {
     
     .benefits-image {
         order: 2;
-        margin: 1.5rem auto 0;
-        padding: 0 1.5rem;
-        text-align: center;
-        width: 100%;
-        box-sizing: border-box;
+        padding: 0 2rem;
+        width: 103%;
+        margin-left: 7.5%;
     }
-    
+
     .rewards-grid {
         display: flex;
         flex-direction: column;
@@ -1820,13 +1772,6 @@ footer {
         font-size: var(--font-size-3xl);
     }
     
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .testimonial-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 @media (max-width: 480px) {
