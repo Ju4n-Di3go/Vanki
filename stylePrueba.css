@@ -327,7 +327,7 @@ html {
     font-size: var(--font-size-base);
     max-width: 600px;
     margin-bottom: 1.5rem;
-    color: rgba(220, 218, 218, 0.95);
+    color: rgba(240, 238, 238, 0.95);
     line-height: 1.6;
 }
 
@@ -792,25 +792,33 @@ html {
     width: fit-content;
 }
 
+/* Estilos base - móvil por defecto */
 .benefits-image {
-    display: none;
-    flex: 0 0 35%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
+    display: none; /* Oculto en móvil por defecto */
 }
 
-.benefits-image img {
-    width: 110%;
-    height: auto;
-    border-radius: 0.75rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border: 8px solid white;
-    transform: scale(1.1);
-    transform-origin: right center;
-    object-fit: cover;
-    margin-top: 3%;
+/* Estilos para escritorio */
+@media (min-width: 1024px) {
+    .benefits-image {
+        display: flex;
+        flex: 0 0 35%;
+        margin: 0;
+        padding: 0;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .benefits-image img {
+        width: 114%;
+        height: auto;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border: 8px solid white;
+        transform: scale(1.1);
+        transform-origin: right center;
+        object-fit: cover;
+        margin-top: 6%!important;
+    }
 }
 
 /* Casa Bonita Section */
