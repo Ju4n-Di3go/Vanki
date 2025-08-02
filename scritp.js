@@ -85,19 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else if (text.includes('+')) {
                     const number = parseInt(text.replace(/[+,]/g, ''));
                     animateCounter(statNumber, number, '+');
-                } else if (text.includes('/') && text.endsWith('/5')) {
-                    // Solo para calificaciones como 4.8/5
-                    const number = parseFloat(text);
-                    let current = 0;
-                    const timer = setInterval(() => {
-                        current += 0.1;
-                        if (current >= number) {
-                            statNumber.textContent = number + '/5';
-                            clearInterval(timer);
-                        } else {
-                            statNumber.textContent = current.toFixed(1) + '/5';
-                        }
-                    }, 30);
                 } else if (text === '24/7') {
                     // Animación para 24/7
                     let current = 0;
@@ -110,9 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             statNumber.textContent = current + '/7';
                         }
                     }, 50);
-                } else if (text === '∞') {
-                    // Keep infinity symbol as is
-                    return;
                 } else {
                     const number = parseInt(text.replace(/[,]/g, ''));
                     if (!isNaN(number)) {
@@ -131,21 +115,8 @@ document.addEventListener('DOMContentLoaded', function() {
         statsObserver.observe(card);
     });
     
-    // Parallax Effect for Floating Elements
-    const floatingElements = document.querySelectorAll('.floating-element');
-    
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
-        
-        floatingElements.forEach((element, index) => {
-            const speed = (index + 1) * 0.2;
-            element.style.transform = `translateY(${rate * speed}px)`;
-        });
-    });
-    
     // Card Hover Effects with Parallax
-    const cards = document.querySelectorAll('.value-card, .benefit-card, .testimonial-card');
+    const cards = document.querySelectorAll('.value-card, .benefit-card, .feature-card');
     
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -197,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Intersection Observer for Animations
-    const fadeInElements = document.querySelectorAll('.value-card, .benefit-card, .testimonial-card, .feature-card');
+    const fadeInElements = document.querySelectorAll('.value-card, .benefit-card, .feature-card');
     
     const fadeInObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
@@ -219,44 +190,12 @@ document.addEventListener('DOMContentLoaded', function() {
         fadeInObserver.observe(element);
     });
     
-    // Contact Form Handling (if forms are added later)
-    const contactForms = document.querySelectorAll('form');
-    
-    contactForms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Add your form submission logic here
-            const formData = new FormData(this);
-            
-            // Show success message
-            const successMessage = document.createElement('div');
-            successMessage.textContent = '¡Mensaje enviado con éxito! Te contactaremos pronto.';
-            successMessage.style.cssText = `
-                background: var(--gradient-accent);
-                color: white;
-                padding: 1rem 2rem;
-                border-radius: 0.5rem;
-                margin-top: 1rem;
-                text-align: center;
-                font-weight: 500;
-            `;
-            
-            this.appendChild(successMessage);
-            this.reset();
-            
-            setTimeout(() => {
-                successMessage.remove();
-            }, 5000);
-        });
-    });
-    
     // WhatsApp Integration
     const whatsappButtons = document.querySelectorAll('[data-whatsapp]');
     
     whatsappButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const phone = '51908835071';
+            const phone = '51946552086';
             const message = 'Hola, me interesa obtener más información sobre Vanki y Casa Bonita Residencial.';
             const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
@@ -288,27 +227,6 @@ document.addEventListener('DOMContentLoaded', function() {
         lazyImages.forEach(img => imageObserver.observe(img));
     }
     
-    // Theme-based animations
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    if (prefersDarkScheme.matches) {
-        document.body.classList.add('dark-theme');
-    }
-    
-    // Console welcome message
-    console.log(`
-    🚀 Vanki - Transformando el futuro de las familias
-    
-    ✨ Desarrollado con:
-    - HTML5 Semántico
-    - CSS3 con Variables Personalizadas
-    - JavaScript Vanilla
-    - Animaciones CSS
-    - Diseño Responsive
-    
-    📱 ¿Interesado en aprender más? 
-    WhatsApp: +51 908 835 071
-    `);
 });
 
 // Additional CSS for ripple effect and mobile menu
@@ -339,18 +257,6 @@ const additionalStyles = `
         box-shadow: var(--shadow-card);
         padding: 1rem;
         border-radius: 0 0 1rem 1rem;
-    }
-    
-    .mobile-menu-btn.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .mobile-menu-btn.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .mobile-menu-btn.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
     }
     
     .header.scrolled {
