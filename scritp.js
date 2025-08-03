@@ -190,22 +190,39 @@ document.addEventListener('DOMContentLoaded', function() {
         fadeInObserver.observe(element);
     });
     
-    // WhatsApp Integration
+    // Función para abrir WhatsApp con un mensaje personalizado
+    function openWhatsApp(message) {
+        const phone = '51946552086';
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    }
+
+    // Configurar los botones de WhatsApp
     const whatsappButtons = document.querySelectorAll('[data-whatsapp]');
-    
     whatsappButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const phone = '51946552086';
-            const message = 'Hola, me interesa obtener más información sobre Vanki y Casa Bonita Residencial.';
-            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Mensaje predeterminado
+            let message = '¡Hola! Estoy interesado en Vanki y me gustaría saber más sobre los servicios educativos que ofrecen.';
+            
+            // Mensaje para SEPARAR CITA
+            if (button.textContent.includes('SEPARAR CITA')) {
+                message = '¡Hola! Estoy interesado en conocer más sobre las casas de Casa Bonita Residencial y cómo puedo inscribirme en los cursos de vanki.';
+            }
+            // Mensaje para "¿Estás buscando un hogar?"
+            else if (button.textContent.includes('buscando un hogar')) {
+                message = '¡Hola! Estoy interesado en conocer más sobre las casas de Casa Bonita Residencial y cómo puedo obtener la mía con educación incluida.';
+            }
+            
+            openWhatsApp(message);
         });
     });
     
-    // Add WhatsApp data attribute to relevant buttons
-    const ctaButtons = document.querySelectorAll('.btn-hero');
+    // Asegurarse de que los botones relevantes tengan el atributo data-whatsapp
+    const ctaButtons = document.querySelectorAll('.btn-hero, .btn-accent');
     ctaButtons.forEach(button => {
-        if (button.textContent.includes('SEPARAR CITA')) {
+        if (button.textContent.includes('SEPARAR CITA') || button.textContent.includes('buscando un hogar')) {
             button.setAttribute('data-whatsapp', 'true');
         }
     });
