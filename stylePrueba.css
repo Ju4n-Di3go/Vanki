@@ -1597,7 +1597,7 @@ footer {
     
     .casa-bonita-features .feature-card {
         min-height: 100px;
-        padding: 1rem 1rem 1rem 1rem;
+        padding: 1.6rem 1rem 1rem 0.5rem;
     }
     
     .casa-bonita-features .feature-card h4 {
