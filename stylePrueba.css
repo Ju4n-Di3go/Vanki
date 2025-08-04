@@ -1692,6 +1692,7 @@ footer {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
+        justify-content: space-evenly;
     }
     
     .footer-links li,
