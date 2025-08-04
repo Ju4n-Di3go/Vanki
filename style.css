@@ -16,6 +16,7 @@
     --gradient-hero: linear-gradient(135deg, hsl(231 84% 58%), hsl(283 89% 74%));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(231 84% 98%));
     --gradient-button: linear-gradient(135deg, hsl(231 84% 58%), hsl(234 100% 70%));
+    --gradient-Unique: linear-gradient(135deg, hsl(38 92% 50%), hsl(45 100% 60%));
     --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%), hsl(45 100% 60%));
     --gradient-card-strong: linear-gradient(145deg, hsla(239, 81%, 49%, 0.619), hsl(239, 66%, 48%));
     
@@ -119,6 +120,18 @@ p {
 }
 
 .btn-hero:hover {
+    box-shadow: var(--shadow-hero);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.btn-Unique {
+    background: var(--gradient-Unique);
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-Unique:hover {
     box-shadow: var(--shadow-hero);
     transform: translateY(-2px) scale(1.05);
 }
@@ -234,7 +247,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Header */
+/* Header Section */
 .header {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -304,6 +317,8 @@ html {
     align-items: center;
     padding: 2rem 1rem;
     color: white;
+    position: relative;
+    overflow: visible;
 }
 
 .hero-grid {
@@ -378,7 +393,6 @@ html {
     border-radius: 50%;
     margin: 0 auto 0.5rem;
     transition: all 0.3s ease;
-    
 }
 
 .hero-section .feature-card:hover .feature-icon {
@@ -429,6 +443,28 @@ html {
     width: 100%;
     height: auto;
     display: block;
+}
+
+.border-image {
+    position: absolute;
+    right: 0;
+    bottom: 30px;
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    margin-right: 1%;
+}
+
+.hero-border-image {
+    width: 80px;
+    height: auto;
+    opacity: 0.8;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hero-border-image:hover {
+    transform: scale(1.1);
+    opacity: 1;
 }
 
 /* About Section */
@@ -510,7 +546,6 @@ html {
 
 .stat-label {
     font-size: var(--font-size-sm);
-    color: hsl(white);
 }
 
 .values-grid {
@@ -799,33 +834,8 @@ html {
     width: fit-content;
 }
 
-/* Estilos base - móvil por defecto */
 .benefits-image {
-    display: none; /* Oculto en móvil por defecto */
-}
-
-/* Estilos para escritorio */
-@media (min-width: 1024px) {
-    .benefits-image {
-        display: flex;
-        flex: 0 0 35%;
-        margin: 0;
-        padding: 0;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
-    .benefits-image img {
-        width: 114%;
-        height: auto;
-        border-radius: 0.75rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        border: 8px solid white;
-        transform: scale(1.1);
-        transform-origin: right center;
-        object-fit: cover;
-        margin-top: 6%!important;
-    }
+    display: none;
 }
 
 /* Casa Bonita Section */
@@ -919,7 +929,6 @@ html {
     font-weight: 500;
 }
 
-/* Casa Bonita Features */
 .casa-bonita-features {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -932,7 +941,7 @@ html {
     align-items: flex-start;
     gap: 1rem;
     padding: 1.25rem 1.25rem 1.25rem 1rem;
-    border-radius: 8px; /* Todas las esquinas redondeadas */
+    border-radius: 8px;
     transition: var(--transition-smooth);
     background-color: rgba(243, 244, 246, 0.8);
     position: relative;
@@ -940,15 +949,13 @@ html {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Borde izquierdo integrado con las esquinas */
 .casa-bonita-features .feature-card {
-    border-left: 2px solid; /* Borde más fino (2px en lugar de 3px) */
+    border-left: 2px solid;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
-    box-shadow: -2px 0 0 0 currentColor; /* Sombra más fina para coincidir */
+    box-shadow: -2px 0 0 0 currentColor;
 }
 
-/* Asegurando que el contenido no se salga del borde redondeado */
 .casa-bonita-features .feature-card > * {
     position: relative;
     z-index: 1;
@@ -972,24 +979,23 @@ html {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Colores de iconos específicos por tarjeta */
 .bg-primary .feature-icon {
-    color: #3b82f6;  /* Azul */
+    color: #3b82f6;
     background: rgba(59, 130, 246, 0.1);
 }
 
 .bg-accent .feature-icon {
-    color: #f59e0b;  /* Naranja que coincide con el borde */
+    color: #f59e0b;
     background: rgba(245, 158, 11, 0.1);
 }
 
 .bg-success .feature-icon {
-    color: #10b981;  /* Verde azulado */
+    color: #10b981;
     background: rgba(16, 185, 129, 0.1);
 }
 
 .bg-secondary .feature-icon {
-    color: #8b5cf6;  /* Morado */
+    color: #8b5cf6;
     background: rgba(139, 92, 246, 0.1);
 }
 
@@ -998,7 +1004,7 @@ html {
 }
 
 .casa-bonita-features .feature-card h4 {
-    color: #000000;  /* Título en negro */
+    color: #000000;
     font-size: 1rem;
     font-weight: 600;
     margin: 0 0 0.25rem 0;
@@ -1006,137 +1012,27 @@ html {
 }
 
 .casa-bonita-features .feature-card p {
-    color: #4a5568;  /* Texto en gris oscuro */
+    color: #4a5568;
     font-size: 0.8125rem;
     margin: 0;
     line-height: 1.4;
 }
 
-/* Colores de fondo y bordes */
 .bg-primary { 
     background: rgba(243, 244, 246, 0.9);
-    color: #3b82f6; /* Color para el borde */
+    color: #3b82f6;
 }
 .bg-accent { 
     background: rgba(243, 244, 246, 0.9);
-    color: #f59e0b; /* Color para el borde */
+    color: #f59e0b;
 }
 .bg-success { 
     background: rgba(243, 244, 246, 0.9);
-    color: #10b981; /* Color para el borde */
+    color: #10b981;
 }
 .bg-secondary { 
     background: rgba(243, 244, 246, 0.9);
-    color: #8b5cf6; /* Estilos para móviles */
-}
-
-@media (max-width: 768px) {
-    /* Estilos para el footer en móviles */
-    .footer-content {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding-top: 1.5rem !important;
-        padding-bottom: 0 !important;
-    }
-    
-    /* Contenedor para las dos columnas (enlaces y contacto) */
-    .footer-columns-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-top: 0.5rem !important;
-        width: 100%;
-    }
-    
-    .footer-column {
-        text-align: left;
-        padding: 0 1rem;
-    }
-    
-    .footer-links,
-    .footer-contact {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-    }
-    
-    .footer-links li,
-    .footer-contact li {
-        margin-bottom: 0.5rem;
-    }
-    
-    .footer-logo {
-        margin: 0 auto;
-    }
-    
-    .footer-description {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        margin-bottom: 0rem!important;
-    }
-    
-    .footer-subtitle {
-        font-size: 1.1rem;
-        margin-bottom: 0.75rem;
-        color: var(--color-primary-glow);
-    }
-    
-    .footer-links,
-    .footer-contact {
-        padding: 0;
-        margin: 0;
-    }
-    
-    .footer-links li,
-    .footer-contact li {
-        margin-bottom: 0.5rem;
-    }
-    
-    .footer-link {
-        font-size: 0.9rem;
-    }
-    
-    .footer-bottom {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-        margin-top: 2rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .footer-copyright,
-    .footer-legal {
-        font-size: 0.8rem;
-    }
-    
-    .footer-legal-links {
-        justify-content: center;
-        gap: 1rem;
-    }
-    
-    .footer-legal-link {
-        font-size: 0.8rem;
-    }
-    .casa-bonita-features {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .casa-bonita-features .feature-card {
-        padding: 1rem;
-    }
-    
-    .casa-bonita-features .feature-card h4 {
-        font-size: 1rem;
-        text-align: left;
-    }
-    
-    .casa-bonita-features .feature-card p {
-        font-size: 0.8125rem;
-        text-align: left;
-    }
+    color: #8b5cf6;
 }
 
 /* CTA Section */
@@ -1147,122 +1043,74 @@ html {
     overflow: hidden;
 }
 
-@media (max-width: 768px) {
-    .cta-section {
-        padding: 1.5rem 0 1rem;
-    }
-}
-
 .cta-section .section-title,
 .cta-section .section-description {
-color: #000;
+    color: #000;
 }
 
 .cta-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 1.5rem;
-margin: 0;
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .cta-card {
-background: var(--gradient-card-strong);
-border-radius: 0.75rem;
-padding: 2rem 1.5rem;
-text-align: center;
-box-shadow: var(--shadow-card);
-transition: var(--transition-smooth);
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-between;
-min-height: 280px;
+    background: var(--gradient-card-strong);
+    border-radius: 0.75rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 280px;
 }
 
 .cta-card h3 {
-font-size: var(--font-size-2xl);
-font-weight: 700;
-margin: 1rem 0 0.75rem;
-color: white;
-line-height: 1.3;
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    margin: 1rem 0 0.75rem;
+    color: white;
+    line-height: 1.3;
 }
 
 .cta-card p {
-font-size: var(--font-size-base);
-margin: 0 0 1.5rem;
-color: rgba(255, 255, 255, 0.9);
-line-height: 1.5;
+    font-size: var(--font-size-base);
+    margin: 0 0 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
 }
 
 .cta-card small {
-font-size: var(--font-size-xs);
-color: rgba(255, 255, 255, 0.8);
-display: block;
-margin-top: 0.5rem;
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+    margin-top: 0.5rem;
 }
 
 .cta-card i {
-font-size: 2.5rem;
-margin: 0 0 0.5rem;
-color: white;
-display: flex;
-align-items: center;
-justify-content: center;
-width: 64px;
-height: 64px;
-background: rgba(255, 255, 255, 0.1);
-border-radius: 50%;
-padding: 0.5rem;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-.cta-grid {
-grid-template-columns: 1fr;
-gap: 1rem;
-padding: 0 1rem;
-}
-    
-.cta-card {
-padding: 1.5rem 1rem;
-min-height: auto;
-border-radius: 0.75rem;
-margin: 0;
-width: 100%;
-}
-    
-.cta-card h3 {
-font-size: 1.25rem;
-margin: 0.75rem 0 0.5rem;
-}
-    
-.cta-card p {
-font-size: 0.9375rem;
-margin: 0 0 1.25rem;
-}
-    
-.cta-card i {
-font-size: 2rem;
-width: 56px;
-height: 56px;
-}
-    
-.cta-card .btn {
-padding: 0.5rem 1rem;
-font-size: 0.875rem;
-width: 100%;
-max-width: 180px;
-}
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    padding: 0.5rem;
 }
 
 /* Contact Section */
 .contact-section {
-padding: 1.5rem 0 0.5rem;
-background-color: hsl(var(--color-background));
-text-align: center;
+    padding: 1.5rem 0 0.5rem;
     background-color: hsl(var(--color-background));
     text-align: center;
 }
@@ -1346,18 +1194,6 @@ text-align: center;
     text-decoration: none !important;
 }
 
-/* Footer Logo and Text Styling */
-.footer-logo {
-    height: 30px;
-    width: auto;
-    vertical-align: middle;
-    margin-right: 8px;
-    margin-bottom: 0;
-    padding: 0;
-    display: inline-block;
-}
-
-
 .contact-card:nth-child(1) .contact-icon {
     background: linear-gradient(135deg, #25D366, #128C7E);
 }
@@ -1370,20 +1206,7 @@ text-align: center;
     background: linear-gradient(135deg, #E1306C, #C13584);
 }
 
-.social-section p {
-    font-weight: 500;
-    color: rgb(0, 0, 0);
-    margin-bottom: 1rem;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-/* Footer */
+/* Footer Section */
 footer {
     background: #030530f7;
     color: white;
@@ -1412,7 +1235,7 @@ footer {
     align-items: flex-start;
     flex-wrap: wrap;
     flex-direction: column;
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 1rem !important;
     width: 100%;
 }
 
@@ -1564,6 +1387,29 @@ footer {
     }
 }
 
+@media (min-width: 1024px) {
+    .benefits-image {
+        display: flex;
+        flex: 0 0 35%;
+        margin: 0;
+        padding: 0;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .benefits-image img {
+        width: 114%;
+        height: auto;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border: 8px solid white;
+        transform: scale(1.1);
+        transform-origin: right center;
+        object-fit: cover;
+        margin-top: 6%!important;
+    }
+}
+
 @media (max-width: 1200px) {
     .contact-grid {
         grid-template-columns: repeat(5, 1fr);
@@ -1611,7 +1457,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* Ocultar el botón "¿Estás buscando un hogar?" en móviles */
     .nav-wrapper > a.btn-hero {
         display: none !important;
     }
@@ -1623,7 +1468,6 @@ footer {
     .mobile-menu-btn {
         display: flex;
     }
-
     
     .hero-title {
         font-size: var(--font-size-3xl);
@@ -1691,7 +1535,7 @@ footer {
     .footer-contact {
         display: flex;
         flex-wrap: wrap;
-        gap: 1rem;
+        gap: 0.6rem;
         justify-content: space-evenly;
     }
     
@@ -1699,10 +1543,97 @@ footer {
     .footer-contact li {
         margin-bottom: 0;
     }
-}
-
-@media (max-width: 768px) {
-    /* Ajustes para la sección de recompensas en móviles */
+    
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 1.5rem !important;
+        padding-bottom: 0 !important;
+    }
+    
+    .footer-columns-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 0.5rem !important;
+        width: 100%;
+    }
+    
+    .footer-column {
+        text-align: center;
+        padding: 3 1rem;
+    }
+    
+    .footer-links,
+    .footer-contact {
+        padding: 4px;
+        margin: 24px;
+        list-style: none;
+    }
+    
+    .footer-links li,
+    .footer-contact li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-logo {
+        margin: 0 auto;
+    }
+    
+    .footer-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 0rem!important;
+    }
+    
+    .footer-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+        color: var(--color-primary-glow);
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        margin-top: 1rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-copyright,
+    .footer-legal {
+        font-size: 0.8rem;
+    }
+    
+    .footer-legal-links {
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .footer-legal-link {
+        font-size: 0.8rem;
+    }
+    
+    .casa-bonita-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .casa-bonita-features .feature-card {
+        padding: 1rem;
+    }
+    
+    .casa-bonita-features .feature-card h4 {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .casa-bonita-features .feature-card p {
+        font-size: 0.8125rem;
+        text-align: left;
+    }
+    
     .benefits-main {
         flex-direction: column;
     }
@@ -1741,15 +1672,10 @@ footer {
         height: 2.5rem;
     }
     
-    .casa-bonita-features {
-        grid-template-columns: 1fr;
-    }
-    
     .container {
         padding: 0 1rem;
     }
     
-    /* Mejoras para tarjetas de características */
     .feature-card {
         padding: 1.5rem 1rem;
         text-align: center;
@@ -1766,7 +1692,6 @@ footer {
         height: 24px;
     }
     
-    /* Ajuste para las tarjetas de beneficios */
     .benefits-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -1787,7 +1712,60 @@ footer {
     .section-title {
         font-size: var(--font-size-3xl);
     }
+}
+
+@media (max-width: 992px) {
+    .hero-border-image {
+        width: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-border-image {
+        width: 50px;
+    }
     
+    .border-image {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .cta-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .cta-card {
+        padding: 1.5rem 1rem;
+        min-height: auto;
+        border-radius: 0.75rem;
+        margin: 0;
+        width: 100%;
+    }
+    
+    .cta-card h3 {
+        font-size: 1.25rem;
+        margin: 0.75rem 0 0.5rem;
+    }
+    
+    .cta-card p {
+        font-size: 0.9375rem;
+        margin: 0 0 1.25rem;
+    }
+    
+    .cta-card i {
+        font-size: 2rem;
+        width: 56px;
+        height: 56px;
+    }
+    
+    .cta-card .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        width: 100%;
+        max-width: 180px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1795,9 +1773,8 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    /* Ajustes generales para móviles */
     html {
-        font-size: 16px; /* Tamaño de fuente base para móviles */
+        font-size: 16px;
     }
     
     h1 { font-size: 1.75rem; }
@@ -1808,7 +1785,6 @@ footer {
         padding: 0 1rem;
     }
     
-    /* Mejora de espaciado en secciones */
     section {
         padding: 2rem 0;
     }
