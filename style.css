@@ -456,10 +456,11 @@ html {
 }
 
 .hero-border-image {
-    width: 80px;
+    width: 100px;
     height: auto;
     opacity: 0.8;
     transition: transform 0.3s ease, opacity 0.3s ease;
+    margin-right: 30px;
 }
 
 .hero-border-image:hover {
@@ -1370,6 +1371,7 @@ footer {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
     }
     
     .benefits-content {
@@ -1723,6 +1725,7 @@ footer {
 @media (max-width: 768px) {
     .hero-border-image {
         width: 50px;
+        margin-right: 10px !important;
     }
     
     .border-image {
