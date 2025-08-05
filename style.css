@@ -456,17 +456,18 @@ html {
 }
 
 .hero-border-image {
-    width: 200px;
+    position: absolute;
+    width: 184px;
     height: auto;
-    opacity: 1;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    margin-right: 32px;
-    margin-bottom: 31%;
+    z-index: 10;
+    bottom: 73px;
+    right: 58px;
+    transition: transform 0.3s ease;
 }
 
 .hero-border-image:hover {
     transform: scale(1.1);
-    opacity: 1;
+    opacity: 1.1;
 }
 
 /* About Section */
@@ -1718,17 +1719,22 @@ footer {
     }
 }
 
+
+/* Ajustes para tablet */
 @media (max-width: 992px) {
     .hero-border-image {
-        width: 70px;
+        width: 80px;
+        bottom: 15px;
+        right: 15px;
     }
 }
 
+/* Ajustes para móvil */
 @media (max-width: 768px) {
     .hero-border-image {
-        width: 73px;
-        margin-right: 43px !important;
-        margin-bottom: 34%;
+        width: 77px;
+        bottom: 52px;
+        right: 65px;
     }
     
     .border-image {
